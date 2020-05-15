@@ -62,7 +62,7 @@ def get_faces(
         the planar embedding and whose keys are its dual nodes.
     """
     if not isinstance(planar, nx.PlanarEmbedding):
-        print("'planar' must be an instance of nx.PlanarEmbedding.")
+        print("'planar' must be a planar embedding.")
 
     # Traverse all faces of 'planar'.
     half_edge_list = list(planar.edges)
@@ -226,7 +226,7 @@ def circle_pack(
             raise Warning("'graph' and 'primal' are simultaneously defined.")
         else:
             if not isinstance(graph, nx.Graph):
-                raise Warning("'graph' must be a undirected simple graph.")
+                raise Warning("'graph' must be an undirected simple graph.")
             if not is_triconnected(graph=graph):
                 raise Warning("'graph' must be triconnected.")
             is_planar, primal = nx.algorithms.check_planarity(graph, counterexample=False)
